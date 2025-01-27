@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Junkyardd</title>
+</head>
+
+<body>
+    <!-- Navbar/Header -->
+    <header class="navbar">
+        <div class="logo">JUNKYARDD</div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about-us">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="#blog">Blog</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact-us">Contact</a>
+        </nav>
+        <div class="user-details" id="userDetails">
+            <button id="authButton" class="btn"></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="hero_image.png" alt="Welcome to Junkyardd" class="hero-image" width="100%" height="100%">
+            <div class="hero-message">
+                <h1>Welcome to Junkyardd</h1>
+                <p>Turning Waste into Opportunity!</p>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about-us" class="about-us">
+            <h2>About Us</h2>
+            <p>Junkyardd is an innovative scrap management ecosystem dedicated to simplifying waste collection and recycling. We strive to create a sustainable environment by channeling waste into useful materials.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <img src="schedule_pickup.png" alt="Doorstep Scrap Collection">
+                    <h3>Doorstep Scrap Collection</h3>
+                    <p>Schedule a pickup and let us handle your scrap from the comfort of your home.</p>
+                </div>
+                <div class="service-card">
+                    <img src="pickup_address.png" alt="Sorting and Recycling">
+                    <h3>Sorting and Recycling</h3>
+                    <p>We ensure your waste is properly sorted and recycled efficiently.</p>
+                </div>
+                <div class="service-card">
+                    <img src="payment.png" alt="Transparent Pricing">
+                    <h3>Transparent Pricing</h3>
+                    <p>Get the best value for your scrap with complete pricing transparency.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-us">
+        <div class="footer-container">
+            <!-- Feedback/Question Form -->
+            <div class="footer-form">
+                <h2>Contact Us</h2>
+                <form action="#" method="POST" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="footer-details">
+                <h2>Get in Touch</h2>
+                <p><strong>Email:</strong> contact@company.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+                <p><strong>Business Hours:</strong></p>
+                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Script -->
+    <script>
+        const authButton = document.getElementById('authButton');
+        const userDetails = document.getElementById('userDetails');
+
+        // LOGIN: Check if the user is logged in
+        function checkUserLogin() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                authButton.textContent = `Logout (${user.name})`;
+                authButton.style.backgroundColor = "red";
+                authButton.addEventListener('click', logoutUser);
+            } else {
+                authButton.textContent = 'Login';
+                authButton.style.backgroundColor = "#4CAF50";
+                authButton.addEventListener('click', () => {
+                    window.location.href = 'login.html'; // Navigate to login page
+                });
+            }
+        }
+
+        // Logout user: Remove user details from localStorage and reload the page
+        function logoutUser() {
+            localStorage.removeItem('user');
+            location.reload(); // Refresh the page to update UI
+        }
+
+        // Initialize the login/logout button
+        checkUserLogin();
+
+        // Contact Form Reset
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();  // Prevent form from submitting to the server
+            document.getElementById("contact-form").reset();  // Reset form fields
+        });
+    </script>
+</body>
+
+</html>

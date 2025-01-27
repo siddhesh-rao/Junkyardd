@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pricing.css">
+    <title>Junkyardd</title>
+</head>
+
+<body>
+    <!-- Navbar/Header -->
+    <header class="navbar">
+        <div class="logo">JUNKYARDD</div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about-us">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="#blog">Blog</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact-us">Contact</a>
+        </nav>
+        <div class="user-details" id="userDetails">
+            <button id="authButton" class="btn"></button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="categories">
+            <h1>Categories</h1>
+        
+            <!-- Normal Category -->
+            <div class="category-group">
+                <h2>Normal</h2>
+                <div class="categories-container">
+                    <div class="category-card">
+                        <img src="papers.png" alt="Papers" class="category-img">
+                        <h3>Papers</h3>
+                        <p>₹14/kg</p>
+                    </div>
+                    <div class="category-card">
+                        <img src="Books.webp" alt="Books" class="category-img">
+                        <h3>Books</h3>
+                        <p>₹12/kg</p>
+                    </div>
+                    <div class="category-card">
+                        <img src="bottles.png" alt="Bottles" class="category-img">
+                        <h3>Bottles</h3>
+                        <p>₹8/kg</p>
+                    </div>
+                    <div class="category-card">
+                        <img src="steel.png" alt="Steels" class="category-img">
+                        <h3>Steels</h3>
+                        <p>₹40/kg</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Large Appliances Category -->
+            <div class="category-group">
+                <h2>Large Appliances</h2>
+                <div class="categories-container">
+                    <div class="category-card">
+                        <img src="split_ac.png" alt="Split AC" class="category-img">
+                        <h3>Split AC</h3>
+                        <p>₹4500/pc</p>
+                    </div>
+                    <div class="category-card">
+                        <img src="smart-washing-machine.png" alt="Washing Machine" class="category-img">
+                        <h3>Washing Machine</h3>
+                        <p>₹1500/pc</p>
+                    </div>
+                    <div class="category-card">
+                        <img src="water-heater.png" alt="Water Heater" class="category-img">
+                        <h3>Water Heater</h3>
+                        <p>₹20/kg</p>
+                    </div>
+                    <div class="category-card">
+                        <img src="fridge.png" alt="Fridge" class="category-img">
+                        <h3>Fridge</h3>
+                        <p>₹1200/pc</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <section class="schedule-pickup">
+            <h1>Schedule a Pickup</h1>
+            <form id="pickupForm">
+                <div class="form-group" style="display: flex; justify-content: space-evenly">
+                    <div>
+                        <label for="date">Pickup Date:</label>
+                        <input type="date" id="date" name="date" required style="width: 150px;">
+                    </div>
+                    <div>
+                        <label for="weight">Estimated Weight (in kg):</label>
+                        <input type="number" id="weight" name="weight" placeholder="Enter weight" required style="width: 300px;">
+                    </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" placeholder="Enter your address" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pincode">Pincode:</label>
+                    <input type="text" id="pincode" name="pincode" placeholder="Enter pincode" required>
+                </div>
+                <button type="submit" class="btn">Schedule Pickup</button>
+            </form>
+            <p id="pickupMessage"></p>
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-us">
+        <div class="footer-container">
+            <!-- Feedback/Question Form -->
+            <div class="footer-form">
+                <h2>Contact Us</h2>
+                <form action="#" method="POST" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="footer-details">
+                <h2>Get in Touch</h2>
+                <p><strong>Email:</strong> contact@company.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+                <p><strong>Business Hours:</strong></p>
+                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Script -->
+    <script>
+        const authButton = document.getElementById('authButton');
+        const userDetails = document.getElementById('userDetails');
+
+        // LOGIN: Check if the user is logged in
+        function checkUserLogin() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                authButton.textContent = `Logout (${user.name})`;
+                authButton.style.backgroundColor = "red";
+                authButton.addEventListener('click', logoutUser);
+            } else {
+                authButton.textContent = 'Login';
+                authButton.style.backgroundColor = "#4CAF50";
+                authButton.addEventListener('click', () => {
+                    window.location.href = 'login.html'; // Navigate to login page
+                });
+            }
+        }
+
+        // Logout user: Remove user details from localStorage and reload the page
+        function logoutUser() {
+            localStorage.removeItem('user');
+            location.reload(); // Refresh the page to update UI
+        }
+
+        // Initialize the login/logout button
+        checkUserLogin();
+
+        // Contact Form Reset
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();  // Prevent form from submitting to the server
+            document.getElementById("contact-form").reset();  // Reset form fields
+        });
+    </script>
+
+    <!-- Schedule pickup -->
+    <script>
+        const pickupForm = document.getElementById('pickupForm');
+        const pickupMessage = document.getElementById('pickupMessage');
+
+        // Add event listener to handle form submission
+        pickupForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const date = document.getElementById('date').value;
+            const address = document.getElementById('address').value.trim();
+            const pincode = document.getElementById('pincode').value.trim();
+            const weight = document.getElementById('weight').value.trim();
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            // Validate form inputs
+            if (!date || !address || !pincode || !weight) {
+                pickupMessage.textContent = "Please fill in all the details properly.";
+                pickupMessage.style.color = "red";
+                return;
+            }
+
+            if (!user) {
+                pickupMessage.textContent = "Please login to schedule a pickup.";
+                pickupMessage.style.color = "red";
+                return;
+            }
+
+            // Successful submission
+            pickupMessage.textContent = "Your pickup is scheduled successfully!";
+            pickupMessage.style.color = "green";
+            pickupForm.reset(); // Reset the form fields
+        });
+    </script>
+</body>
+
+</html>

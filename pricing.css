@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* Main Content Styles */
+main {
+    padding: 40px 20px;
+}
+
+/* Schedule Pickup Section */
+.schedule-pickup {
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.schedule-pickup h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.schedule-pickup .form-group {
+    margin-bottom: 15px;
+}
+
+.schedule-pickup label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.schedule-pickup input, .schedule-pickup textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.schedule-pickup textarea {
+    resize: none;
+}
+
+.schedule-pickup button {
+    padding: 12px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+.schedule-pickup button:hover {
+    background-color: green;
+}
+
+#pickupMessage {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: green;
+}
+
+.categories {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.categories h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.category-group {
+    margin-bottom: 40px;
+}
+
+.category-group h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.category-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.category-card .category-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.category-card p {
+    font-size: 1.2rem;
+    color: #333;
+}
